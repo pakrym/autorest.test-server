@@ -1,0 +1,41 @@
+resources:
+- repo: self
+  clean: true
+#Multi-configuration and multi-agent job options are not exported to YAML. Configure these options using documentation guidance: https://docs.microsoft.com/vsts/pipelines/process/phases
+
+queue:
+  name: Hosted Ubuntu 1604
+steps:
+- bash: |
+   env
+
+   python3 --version
+   python3 -m pip install -U pip setuptools wheel virtualenv
+   python3 ./setup.py sdist --format=zip --dist-dir ../sdist
+   python3 ./setup.py bdist_wheel --dist-dir ../wheeldir
+
+   rm ./wheeldir/*nspkg-*-py2.py3-none-any.whl
+
+   python3 -m virtualenv testing
+   source ./testing/bin/activate
+
+   python3 -m pip install ./wheeldir/*
+
+  displayName: Installation
+
+- bash: |
+   # Hacking the test system, to remove test using legacy test framework
+   rm -rf azure-servicemanagement-legacy azure-servicebus
+
+   source ./testing/bin/activate
+   pytest --junitxml=junit.xml
+
+  displayName: Pytest
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFiles: '*.xml'
+
+
+
