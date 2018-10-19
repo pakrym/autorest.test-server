@@ -3,7 +3,7 @@ resources:
   clean: true
 
 jobs:
-- job: 'Build test result'
+- job: 'TestServerReport'
 
   steps:
 
