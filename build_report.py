@@ -66,7 +66,7 @@ def build_junit_xml(tests):
 
 def serialize_report(xml_report, file="report.xml"):
     with open(file, "wb") as fd:
-        bytes_data = ET.tostring(xml_report, encoding="utf8")
+        bytes_data = ET.tostring(xml_report, encoding="utf-8")
         fd.write(bytes_data)
 
 def main():
