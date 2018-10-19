@@ -7,11 +7,7 @@ resources:
   steps:
 
   - bash: |
-    # Hacking the test system, to remove test using legacy test framework
-    rm -rf azure-servicemanagement-legacy azure-servicebus
-
-    source ./testing/bin/activate
-    pytest --junitxml=junit.xml
+    # pytest --junitxml=junit.xml
 
     displayName: Pytest
 
