@@ -50,13 +50,17 @@ def build_junit_xml(tests):
 </testsuite>
     """
     print("Building report")
-    testsuite = ET.Element('testsuite', tests=str(len(tests)), name='TestServer')
+    failed = 0
+    testsuite = ET.Element('testsuite', tests=str(len(tests)), name='TestServer', errors="0")
     for test_id, test in tests.items():
         print(test_id)
         print(test)
-        testcase = ET.SubElement(testsuite, 'testcase', classname="Python", name=test['name'])
+        testcase = ET.SubElement(testsuite, 'testcase', classname="Python", name=test['name'], time="0")
         if not test['state']:
             ET.SubElement(testcase, 'failure')
+            failed += 1
+
+    testsuite.set("failures", str(failed))
 
     return testsuite
 
