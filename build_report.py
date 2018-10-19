@@ -55,7 +55,7 @@ def build_junit_xml(tests):
     for test_id, test in tests.items():
         print(test_id)
         print(test)
-        testcase = ET.SubElement(testsuite, 'testcase', classname="Python", name=test['name'], time="0")
+        testcase = ET.SubElement(testsuite, 'testcase', classname="Python", name=test['name']+'-'+test_id, time="0")
         if not test['state']:
             ET.SubElement(testcase, 'failure')
             failed += 1
