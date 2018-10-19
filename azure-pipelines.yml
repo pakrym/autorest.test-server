@@ -2,21 +2,23 @@ resources:
 - repo: self
   clean: true
 
-steps:
+- job: 'Build test result'
 
-- bash: |
-   # Hacking the test system, to remove test using legacy test framework
-   rm -rf azure-servicemanagement-legacy azure-servicebus
+  steps:
 
-   source ./testing/bin/activate
-   pytest --junitxml=junit.xml
+  - bash: |
+    # Hacking the test system, to remove test using legacy test framework
+    rm -rf azure-servicemanagement-legacy azure-servicebus
 
-  displayName: Pytest
+    source ./testing/bin/activate
+    pytest --junitxml=junit.xml
 
-- task: PublishTestResults@2
-  displayName: 'Publish Test Results'
-  inputs:
-    testResultsFiles: '*.xml'
+    displayName: Pytest
+
+  - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    inputs:
+      testResultsFiles: '*.xml'
 
 
 
