@@ -50,7 +50,7 @@ def build_junit_xml(tests):
 </testsuite>
     """
     print("Building report")
-    testsuite = ET.Element('testsuite', tests=str(len(tests)))
+    testsuite = ET.Element('testsuite', tests=str(len(tests)), name='TestServer')
     for test_id, test in tests.items():
         print(test_id)
         print(test)
