@@ -2,6 +2,7 @@ resources:
 - repo: self
   clean: true
 
+jobs:
 - job: 'Build test result'
 
   steps:
