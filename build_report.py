@@ -55,8 +55,6 @@ def build_junit_xml(tests):
     failed = 0
     testsuite = ET.Element('testsuite', tests=str(len(tests)), name='TestServer', errors="0")
     for test_id, test in tests.items():
-        if test['time']:
-            print("Time: {}".format(test['time']))
         testcase = ET.SubElement(
             testsuite,
             'testcase',
