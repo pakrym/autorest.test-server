@@ -29,13 +29,15 @@ def build_json_report():
             raise ValueError(mapping)
         tests[mapping['id']] = {
             'name': mapping.get('name', mapping['id']) or mapping['id'],
-            'state': False
+            'state': False,
+            'time': 0
         }
 
     for request in requests:
         if request["wasMatched"]:
-            print(request['id'])
-            tests[request["stubMapping"]["id"]]['state'] = True
+            stub_id = request["stubMapping"]["id"]
+            tests[stub_id]['state'] = True
+            tests[stub_id]['time'] = request["timing"]["totalTime"] / 1000  # in seconds
 
     return tests
 
@@ -53,9 +55,15 @@ def build_junit_xml(tests):
     failed = 0
     testsuite = ET.Element('testsuite', tests=str(len(tests)), name='TestServer', errors="0")
     for test_id, test in tests.items():
-        print(test_id)
-        print(test)
-        testcase = ET.SubElement(testsuite, 'testcase', classname="Python", name=test['name']+'-'+test_id, time="0")
+        if test['time']:
+            print("Time: {}".format(test['time']))
+        testcase = ET.SubElement(
+            testsuite,
+            'testcase',
+            classname="Python",
+            name=test['name']+'-'+test_id,
+            time=str(test['time'])
+        )
         if not test['state']:
             ET.SubElement(testcase, 'failure')
             failed += 1
