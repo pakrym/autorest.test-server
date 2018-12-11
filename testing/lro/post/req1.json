@@ -1,0 +1,14 @@
+{
+    "scenarioName": "LRO POST Double headers A-AO and Location. No LRO options",
+    "request": {
+        "method": "POST",
+        "url": "/lro/LROPostDoubleHeadersFinalLocationGet"
+    },
+    "response": {
+        "status": 202,
+        "headers": {
+            "Azure-AsyncOperation": "{{request.requestLine.baseUrl}}/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl",
+            "Location": "{{request.requestLine.baseUrl}}/lro/LROPostDoubleHeadersFinalLocationGet/location"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "request": {
+        "method": "PUT",
+        "url": "/container",
+        "bodyPatterns": [
+            {
+                "equalToXml": "<container />"
+            },
+            {
+                "matchesXPath": "//container"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "body": "Hello world!!!!",
+        "headers": {
+            "Content-Type": "text/plain"
+        }
+    }
+}

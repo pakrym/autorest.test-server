@@ -1,0 +1,16 @@
+{
+    "scenarioName": "LRO POST Double headers A-AO and Location. No LRO options",
+    "request": {
+        "method": "GET",
+        "url": "/lro/LROPostDoubleHeadersFinalLocationGet/asyncOperationUrl"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": {
+            "status": "succeeded"
+        }
+    }
+}
