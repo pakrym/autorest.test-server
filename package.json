@@ -1,5 +1,5 @@
 {
-  "verison": "3.0.0",
+  "version": "3.0.0",
   "private": false,
   "name": "@autorest/test-server",
   "description": "AutoRest validation test suite",
