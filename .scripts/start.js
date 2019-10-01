@@ -2,9 +2,14 @@
 const { existsSync } = require('fs');
 const { resolve } = require('path');
 
-require('http').request( {port: 3000, host:'localhost', method: 'POST', path: '/__admin/shutdown'} , (i,j) => {
-    // shutdown running server if it is running.
-}).end()
+try { 
+  const p = require('http').request( {port: 3000, host:'localhost', method: 'POST', path: '/__admin/shutdown'} , () => {
+  // shutdown running server if it is running.
+}, ()=> {});
+    p.on('error', ()=>console.log('Test-server not running.'));
+    p.end();
+} catch(E) { 
+}
 
 var here = __dirname;
 while(! existsSync( `${here}/node_modules/wiremock/jdeploy-bundle/jdeploy.js`)) {
