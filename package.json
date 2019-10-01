@@ -8,8 +8,8 @@
     "stop": "node ./.scripts/stop"
   },
   "bin": {
-    "start-autorest-testserver": "./.scripts/start",
-    "stop-autorest-testserver": "./.scripts/stop"
+    "start-autorest-testserver": "./.scripts/start.js",
+    "stop-autorest-testserver": "./.scripts/stop.js"
   },
   "dependencies": {
     "wiremock": "2.25.0"
