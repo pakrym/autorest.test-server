@@ -1,5 +1,7 @@
-# testserverv2
+# @AutoRest/Test-Server
 
-Testing a new TestServer infra
+v3!
+
+Testing a new TestServer
 
 See Readmes in mappings and testing directory for details
