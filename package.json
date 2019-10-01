@@ -1,0 +1,17 @@
+{
+  "verison": "3.0.0",
+  "private": false,
+  "name": "@autorest/test-server",
+  "description": "AutoRest validation test suite",
+  "scripts": {
+    "start": "node ./.scripts/start",
+    "stop": "node ./.scripts/stop"
+  },
+  "bin": {
+    "start-autorest-testserver": "./.scripts/start",
+    "stop-autorest-testserver": "./.scripts/stop"
+  },
+  "dependencies": {
+    "wiremock": "2.25.0"
+  }
+}
