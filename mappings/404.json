@@ -1,5 +1,6 @@
 {
     "priority":10,
+    "name" : "not-found",
     "request": {
       "method": "ANY",
       "urlPattern": ".*"
