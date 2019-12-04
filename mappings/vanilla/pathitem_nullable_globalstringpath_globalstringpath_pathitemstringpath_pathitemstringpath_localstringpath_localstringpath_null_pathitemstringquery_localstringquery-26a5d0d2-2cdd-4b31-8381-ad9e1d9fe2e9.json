@@ -2,7 +2,15 @@
   "id" : "26a5d0d2-2cdd-4b31-8381-ad9e1d9fe2e9",
   "name" : "pathitem_nullable_globalstringpath_globalstringpath_pathitemstringpath_pathitemstringpath_localstringpath_localstringpath_null_pathitemstringquery_localstringquery",
   "request" : {
-    "url" : "/pathitem/nullable/globalStringPath/globalStringPath/pathItemStringPath/pathItemStringPath/localStringPath/localStringPath/null/pathItemStringQuery/localStringQuery?localStringQuery=localStringQuery&pathItemStringQuery=pathItemStringQuery",
+    "urlPath" : "/pathitem/nullable/globalStringPath/globalStringPath/pathItemStringPath/pathItemStringPath/localStringPath/localStringPath/null/pathItemStringQuery/localStringQuery",
+    "queryParameters" : {
+      "localStringQuery" : {
+        "equalTo" : "localStringQuery"
+      },
+      "pathItemStringQuery" : {
+        "equalTo" : "pathItemStringQuery"
+      }
+    },
     "method" : "GET"
   },
   "response" : {
